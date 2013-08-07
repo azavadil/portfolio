@@ -2,11 +2,11 @@ Demo
 ====
 Demo is a forum webapp running on google app engine. There's a live instance of the app on the web at www.demonstrationforum.appspot.com.
 
-The application logic is in [main.py](http://github.com/azavadil).  
+The application logic is in [main.py](https://github.com/azavadil/portfolio/blob/master/Demo/main.py).  
 
 AdprChlg 
 ========
-Solution submitted to the Addepar challenge. The main logic is in [adprChlg.py](http://github.com/azavadil) 
+Solution submitted to the Addepar challenge. The main logic is in [adprChlg.py](https://github.com/azavadil/portfolio/blob/master/AdprChlg/addeparChlg.py) 
  
 I interviewed with Addepar and as part of their interview process they ask candidtates to implement a solution to an engineering challenge. 
 
@@ -18,7 +18,7 @@ I thought it would useful to show how I solved a problem that wasn't from a clas
 
 TpChlg 
 ======
-Solution submitted to the TrialPay engineering challenge. The main logic is in [trailpay.py](https://github.com/azavadil). 
+Solution submitted to the TrialPay engineering challenge. The main logic is in [trailpay.py](https://github.com/azavadil/portfolio/blob/master/TpChlg/trialpay.py). 
 
 The challenge was to write a program to determine whether a snake cube puzzle has a solution ([snake cube puzzle explained here](http://blog.trialpay.com/2010/08/trialpay-engineering-challenge-the-snake-cube-puzzle/) ).
 
@@ -27,7 +27,7 @@ I used a BFS algorithm to determine whether there was a valid solution.
 Arbitrage
 =========
 
-Arbitrage is a program that efficiently finds foreign currency arbitrage opportunities. The code is in [arbitrage.py](https://github.com/azavadil). 
+Arbitrage is a program that efficiently finds foreign currency arbitrage opportunities. The code is in [arbitrage.py](https://github.com/azavadil/portfolio/blob/master/Arbitrage/Arbitrage.py). 
 
 arbitrage.py pulls live data from Yahoo finance and finds foriegn currency arbitrages. Because the Yahoo data isn't realistic arbritrage.py typically finds circular arbitrage opportunties(e.g. USD->EUR->USD). I've included test cases that demonstrate the more interesting case of finding triangular arbitrage opportunities(e.g. USD->EUR->JPY->USD). 
 
