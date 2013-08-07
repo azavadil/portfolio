@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block controls %}
+	<a class="gray-link" href="/userposts">userposts</a>
+{% endblock %}
+
+
+{% block content %}
+	{% for frontPost in frontPosts %}
+		{{frontPost.render(b_summarize = True) | safe }}
+		<br><br>
+	{% endfor %}
+{% endblock %}
+
+
+{% block sidebar %}
+<div class = "sidebar"> 
+	Reader Opinion's
+</div>
+	<div class = "sidebar-topvote-header">
+	Top Voted
+	</div>
+	 
+		{% for userPost in userPosts %}
+			<a class="gray-link" href="{{userPost.url_path}}">{{userPost.title}}</a> 
+			
+			<div class = "sidebar-topvote-author">
+			by <b>{{userPost.author}}</b>
+			</div> 
+		{% endfor %}
+	
+	
+	<div class = "sidebar-recent-header"> 
+	Most Recent 
+	</div>
+	
+		{% for userPost in userPosts %}
+			<a class="gray-link" href="{{userPost.url_path}}">{{userPost.title}}</a>
+					
+			<div class="sidebar-recent-author">
+			by <b>{{userPost.author}}</b>
+			</div>
+		{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,22 @@
+<div class="comment">
+  
+   <div class="comment-title">
+     <b>{{page.cmt_title}}</b>
+   </div>
+   
+  <div class="comment-content">
+	{{page._render_text | safe }}
+  </div>
+  
+  <div class="comment-sig">
+	<span>
+		by <b>{{page.cmt_author}}</b>
+	</span>
+  
+	<span>
+		{{page.created.strftime("%b %d, %Y")}}
+    </span>
+  </div>
+  
+	
+</div>

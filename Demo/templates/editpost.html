@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+<div id = "edit-editblock">
+{% block editblock %}
+	<h2 class="edit-h2">Edit post</h2>
+
+    <form class="main-edit" method="post">
+      <label>
+        <div>Title</div>
+		{% if singlePost %}
+        <input type="text" name="title" value="{{singlePost.title}}">
+		{% else %}
+		<input type="text" name="title" value="{{outTitle}}">
+		{% endif %}
+	  </label>
+
+      <label>
+        <div>Post</div>
+		{% if singlePost %}
+        <textarea name="content">{{singlePost.insiderPost}}</textarea>
+		{% else %} 
+		<textarea name="content">{{outCon}}</textarea>
+		{% endif %}
+	  </label>
+
+      <div class="error">{{error}}</div>
+
+      <div class = "form-footer"> 
+		<button type = "submit">Save</button>
+	  </div>
+	  <input type="hidden" name="db_id" value="{{singlePost.key()}}">
+    </form>
+
+{% endblock %}
+</div> 

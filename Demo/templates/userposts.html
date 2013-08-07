@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<table class="history-table">
+	{% for post, rowstyle in gray_style(posts) %}
+		<tr class="{{rowstyle}}">
+			<td class="content-cell">
+				<a class = "gray-link" href="{{post.url_path}}">{{post.title}}</a>
+			</td>
+			
+			<td class="content-cell">
+				{{ post.author}}
+			</td>
+			
+			<td class="date-cell">
+				{{ post.created.strftime("%b %d, %Y") }}
+			</td>
+				
+		</tr>
+	{% endfor %}
+	</table>
+				
+{% endblock %}
+

@@ -1,0 +1,95 @@
+/**
+ * Implementation note: synchronizeMapView
+ * ----------------------------------------------------------
+ * FundamentalsS: we have a controller whose model is annotations
+ *               the view also has an instance variable annotations
+ *      
+ * We want to keep the controller annotations and the view annotations in sync. In order to implement 
+ * we create the method sychronizeMapView and only set the view's annotations in that method. 
+ * 
+ * One alternative that wouldn't work (but we might expect to work) would to be to set the view's 
+ * annotation property in prepareToSegue. As implemented, the view's annotation property 
+ * is private. We could make the view's annotation property public with the intention of setting 
+ * both the controller's annotations and the views annotations when we segue. However, 
+ * this would not work because the outlets are not set when prepareForSegue is called. 
+ * Since the view is connected via and outlet, a call to set a property of the view would fail
+ */ 
+
+
+/**
+ * Implementation note
+ * ---------------------------
+ * In order to share a single UIManagedDocument among many view controllers we use a helper method
+ * to create and open the UIManagedDocument. The helper then hands out the document to the caller. 
+ * Because creating and opening a UIManagedDocument is an asynchronous operation we use blocks
+ * to complete the call. This is a more direct example of creating/opening a document without a helper class. 
+ * from 193Developers/PicMania/PhotographersTVC
+
+- (void)useDocument
+{
+    if(![[NSFileManager defaultManager] fileExistsAtPath:[self.photoDatabase.fileURL path]])
+    {
+        /* this is the creation of the document. Immediately afterward
+         * we load up the document in [self fetchFlickrDataIntoDocument]
+         */ 
+        
+        NSLog(@"making it to useDocument"); 
+        
+        
+        [self.photoDatabase saveToURL:self.photoDatabase.fileURL 
+                     forSaveOperation:UIDocumentSaveForCreating 
+                    completionHandler:^(BOOL success){
+                        [self setupFetchedResultsController];     
+                        [self fetchFlickrDataIntoDocument:self.photoDatabase]; 
+                    }]; 
+         
+             
+        
+    }
+    else if(self.photoDatabase.documentState == UIDocumentStateClosed)
+    {
+        [self.photoDatabase openWithCompletionHandler:^(BOOL success) {
+            //complete implementation of block
+            [self setupFetchedResultsController];
+            [self fetchFlickrDataIntoDocument:self.photoDatabase]; 
+        }]; 
+    }
+    else if(self.photoDatabase.documentState == UIDocumentStateNormal)
+    {
+        [self setupFetchedResultsController];
+    }
+}
+
+- (void)setupFetchedResultsController
+{
+    
+    // here we're building the request
+    
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Photographer"]; 
+    // request.predicate ... none because we want all photographers
+    request.sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES selector:@selector(localizedCaseInsensitiveCompare:)]]; 
+    
+    // now that we've built the request we need to execute the request
+    
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:request 
+                                                                        managedObjectContext:self.photoDatabase.managedObjectContext
+                                                                          sectionNameKeyPath:nil 
+                                                                                   cacheName:nil]; 
+}
+
+
+- (void)fetchFlickrDataIntoDocument:(UIManagedDocument *)document
+{
+    dispatch_queue_t fetchQ = dispatch_queue_create("Flickr fetcher", NULL);
+    dispatch_async(fetchQ, ^{
+        NSArray *photos = [FlickrFetcher recentGeoreferencedPhotos]; 
+        [document.managedObjectContext performBlock:^{
+            for(NSDictionary *flickrPhoto in photos){
+                [Photo photoWithFlickrInfo:flickrPhoto inManagedObjectContext:document.managedObjectContext]; 
+            }
+        }]; 
+    });
+    dispatch_release(fetchQ); 
+}
+
+

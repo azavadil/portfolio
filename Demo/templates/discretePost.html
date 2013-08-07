@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+	{{singlePost.render() | safe }}
+	
+	<div id="comment-container">
+	<div class="comment-divider">Comments</div>  
+		{% if readerComments %}
+			{% for readerComment in readerComments %}
+				{{ readerComment.render() | safe }}
+			{% endfor %}
+		{% endif %}
+	
+		{% if user %}
+		<div class="comment-form">
+			Post a new comment!
+			<form method = "post"> 
+			
+				<label> 
+					<span>Title</span> 
+					<input type="text" name = "title" value="">
+				</label> 
+	
+			<div class="clear"></div>
+				
+				<label> 
+					<span>Comment</span> 
+					<textarea name="comment"></textarea>
+				</label>
+			
+			<div class="clear"></div>
+			
+			<div class="comment-footer"> 
+				<button type="submit">Save</button>
+			</div>	
+			</form>
+		</div>
+		{% else %}
+		<div style ="margin-top:5px"></div>
+			<a class="gray-link" href="/login">Signup or Login to make a comment</a>
+		</div>
+		{% endif %}
+	
+	</div>
+{% endblock %}

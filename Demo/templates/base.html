@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<link type="text/css" rel="stylesheet" href="/stylesheets/static.css"/>
+		<title>DailyDope</title>
+</head>
+	
+<body>
+	<a href="/" class ="main-title">
+	    TechRag
+	</a>
+    
+	<div class="header">
+		<div class="controls">
+			{% if user %}
+				{{user.user_name}} (<a class="gray-link" href="/logout">logout</a>)
+				|
+				<a class="gray-link" href="/newpost">newpost</a>
+				|
+				<a class="gray-link" href="/edit">edit</a>
+			{% else %}
+				<a class="gray-link" href="/login">login</a>
+				|
+				<a class="gray-link" href="/signup">signup</a>
+			{% endif %}
+		</div>
+
+		<div class="controls">
+			<!-- this is a blank will be overwritten by templates that inherit base --> 
+			{% block controls %}
+			{% endblock %}
+		</div>
+	
+		<div class="clear"></div>
+	</div> <!--this ends the header section --> 
+	
+	<!--this begins the content section --> 
+	<div id="base-container">  
+		<!--<pre> tag is user to preserve whitespace for leftspacer-->
+		<div id="base-leftcol"><pre> </pre></div>
+		<div id="base-content">
+		{% block content %}
+		{% endblock %}
+		</div>
+	
+		<div id="base-rightcol">
+		{% block sidebar %}
+		{% endblock %}
+		</div>
+			
+	</div> 
+	 
+	{% block editblock %}
+	{% endblock %}
+	 
+</body>
+
+</html>

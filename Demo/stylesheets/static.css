@@ -1,0 +1,364 @@
+html {
+	height: 100%;
+}
+
+/** {
+    border:1px solid grey;
+}*/
+
+body {
+	postition: relative
+	height: 100%;
+	
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	
+	width: 800px;
+	margin: 0 auto;
+	color: #333;
+}
+
+.header {
+	height: 30px;
+	line-height: 30px;
+	
+	margin-bottom: 10px;
+}
+
+.controls {
+	float: right;
+	font-size: 13px;
+	color: gray;
+}
+
+.controls + .controls {
+	margin-right: 20px;
+}
+
+.gray-link {
+	color: gray;
+	text-decoration: none;
+}
+
+.gray-link:visited {
+	color: gray;
+}
+
+.gray-link:hover {
+	text-decoration: underline;
+}
+
+.error {
+	color: red;
+}
+
+.clear { 
+	clear: both;
+}
+	
+/* FORMATTING FOR THE BASE TEMPLATE */
+#base-container { 
+	position: relative; 
+}
+
+
+#base-leftcol { 
+	/*position: absolute;*/ 
+	width: 22.5%;
+	float:left; 
+}
+
+#base-content {
+	/*position: absolute;*/
+	width:50%; 
+	float: left;
+}	
+
+#base-rightcol{
+	margin-left: 15px;
+	position: relative; 
+	width:22.5%;
+	float: left; 
+	display:block; 
+	padding: 0 10px 0 10px;
+}
+
+/* FORMATTING FOR THE SIDEBAR */ 
+.sidebar {
+	display:block; 
+	padding-bottom: 5px;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 10px;
+	font-weight: bold; 
+}
+
+.sidebar-topvote-header {
+	padding-top: 5px; 
+	padding-bottom: 5px;
+	font-weight: normal;
+	font-size: 10px;
+	background: #eee; 
+}
+
+.sidebar-topvote-title {
+	font-size: 12px;
+	padding-bottom: 0px;
+	font-weight: normal; 
+}	
+
+.sidebar-topvote-author {
+	font-size: 10px;
+	padding-bottom: 5px; 
+	font-weight:normal; 
+	}	
+	
+.sidebar-topvote-author pre {
+	padding:0px;
+	margin: 0px;
+	}
+
+.sidebar-recent-header {
+	padding-top:5px; 
+	padding-bottom: 5px;
+	font-weight: normal;
+	font-size: 10px;
+	background: #eee
+}
+
+.sidebar-recent-title {
+	font-size: 12px;
+	padding: 0px;
+	font-weight: normal; 
+}	
+
+.sidebar-recent-author {
+	font-size: 10px;
+	padding: 0px;
+	font-weight: normal; 
+	}	
+
+/*FORMATING FOR THE EXISTING COMMENTS */ 
+.comment-title {
+	font-size:10px;
+	margin-top: 5px;
+}
+
+.comment-content {
+	font-size: 10px;
+}
+
+.comment-sig { 
+	border-bottom: 1px solid black;
+}	
+
+.main-comment {
+	font-size: 8px; 
+}
+
+	
+/*FORMATTING FOR THE COMMENT FORM*/ 
+
+/*OUTLINE
+/*comment-cmt-form    (we have cmts and then input form)
+/*	comment-divider
+/*	comment-input-title
+/* 	comment-input-area
+/*	comment footer */
+
+#comment-container {
+	font-size:8px;
+	margin-top: 5px;
+	padding: 2px;
+}
+
+#comment-container .comment-divider {
+	font-size:8px;
+	background:#C0C0C0;
+	padding: 2px; 
+	color:white; 
+	font-weight: bold; 
+}
+
+#comment-container .comment-form {
+	margin-top: 5px;
+	padding-top: 5px; 
+	display: inline; 
+	background: #eee; 
+	float: left; 
+	font-weight: bold; 
+	width: 100%
+}
+
+#comment-container .comment-form form {
+	margin-top: 5px;
+	display: inline;
+	background: #eee;
+	float: left; 
+	width: 100%;
+}
+
+#comment-container .comment-form span {
+	background: #eee;
+	float: left; 
+	width: 20%;
+}
+#comment-container .comment-form input {
+	float: left; 
+	width: 70%;
+	display: inline; 
+}
+
+
+#comment-container .comment-form textarea {
+	float: left; 
+	width: 70%;
+	height: 100px; 
+	display: inline; 
+}
+
+#comment-container .comment-form button {
+	float: left; 
+	height: 30px; 
+	margin: 0;
+    background: white; 
+	border: 1px solid #BDBDBD;
+}
+
+#comment-container .gray-link {
+	font-size: 11px;
+	font-weight: bold; 
+	color: gray;
+	text-decoration: none;
+}
+
+#comment-container .gray-link:hover {
+	text-decoration: underline;
+}
+
+#comment-container .gray-link:visited {
+	color: gray; 
+}
+
+
+#base-rightcol .gray-link {
+	font-size: 11px;
+	font-weight: bold; 
+	color: gray;
+	text-decoration: none;
+}
+
+#base-rightcol .gray-link:visited {
+	color: gray;
+}
+
+#base-rightcol .gray-link:hover {
+	text-decoration: underline;
+*/
+}
+	
+.main-title {
+    display: block;
+    color: #222;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    text-decoration: none;
+}
+
+
+.main-edit {
+	position: absolute;
+	top: 200px;
+	right: 0;
+	bottom: 10px;
+	left: 0;
+}
+
+.main-edit textarea {
+	position: absolute;
+	top: 60px;
+	bottom: 30px;
+	left: 0; 
+	right: 0;
+	font-size: 14px;
+}
+
+.form-footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 30px;
+}
+	
+.main-edit button {
+	font-size: 18px;
+}
+
+
+.post + .post {
+    margin-top: 15px;
+}
+
+.post-heading {
+    position: relative;
+    border-bottom: 3px solid #666;
+}
+
+.post-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.post-date {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    color: #999;
+}
+
+.post-content {
+    margin-top: 5px;
+
+}
+
+
+.history-table {
+	border-collapse: collapse;
+}
+
+.history-table .gray {
+	background-color: #eee;
+}
+
+.history-table .date-cell {
+	padding: 10px;
+	width:200px; 
+}
+
+.history-table .content-cell {
+	padding: 10px;
+	width: 200px;
+}
+
+.history-table .link-cell {
+	padding: 0 5px;
+}
+
+#edit-editblock {
+	position: relative;
+	top: 20%;
+	right: 5%;
+	left: 5%; 
+	bottom: 5%;
+}
+
+.edit-h2 {
+	position: absolute;
+	top: 170px; 
+	left: 0px;
+	right: 0px; 
+	margin-top:0; 
+	clear:both;
+}

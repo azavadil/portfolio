@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+<div id = "edit-editblock">
+{% block editblock %}
+	<h2 class="edit-h2">New post</h2>
+	
+	
+    <form class="main-edit" method="post">
+      <label>
+        <div>Title</div>
+        <input type="text" name="title" value="{{outTitle}}">
+      </label>
+
+      <label>
+        <div>Post</div>
+        <textarea name="content">{{outCon}}</textarea>
+      </label>
+
+      <div class="error">{{error}}</div>
+
+      <div class = "form-footer"> 
+		<button type = "submit">Save</button>
+	  </div>
+    </form>
+
+{% endblock %}
+</div> 
