@@ -1,0 +1,5 @@
+Assign4 encompasses [assignments 4,5, and 6](http://www.stanford.edu/class/cs193p/cgi-bin/drupal/downloads-2011-fall) from Stanford's CS193 iPhone app development class. The class consisted of building two iPhone apps and a final project. Assign4 is the more sophisticed application.
+
+The application is built on top of the Flickr API. The application starts with a table view of the top locations in Flickr. The user can then browse through the locations in the tableview or on a map . When the user selects a location, the application displays photos from that location. Again, the user can view the photos from a tableview or from a map (with all the functionality you'd expect, thumbnails of the photos and disclosure buttons to navigate directly from the photo to the map). The user can also choose to 'visit' a photo to build a 'virtual vacation' (i.e. a list of photos the user can subsequently browse).
+
+There's no single file to review as the application requires the entire collection of files to work.
