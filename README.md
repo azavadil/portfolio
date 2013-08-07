@@ -6,7 +6,7 @@ The application logic is in [main.py](https://github.com/azavadil/portfolio/blob
 
 AdprChlg 
 ========
-Solution submitted to the Addepar challenge. The main logic is in [adprChlg.py](https://github.com/azavadil/portfolio/blob/master/AdprChlg/addeparChlg.py) 
+Solution submitted to the Addepar challenge. The main logic is in [addeparChlg.py](https://github.com/azavadil/portfolio/blob/master/AdprChlg/addeparChlg.py) 
  
 I interviewed with Addepar and as part of their interview process they ask candidtates to implement a solution to an engineering challenge. 
 
@@ -18,7 +18,7 @@ I thought it would useful to show how I solved a problem that wasn't from a clas
 
 TpChlg 
 ======
-Solution submitted to the TrialPay engineering challenge. The main logic is in [trailpay.py](https://github.com/azavadil/portfolio/blob/master/TpChlg/trialpay.py). 
+Solution submitted to the TrialPay engineering challenge. The main logic is in [trailpay.py](https://github.com/azavadil/portfolio/blob/master/TpChlg/trialpay.py)
 
 The challenge was to write a program to determine whether a snake cube puzzle has a solution ([snake cube puzzle explained here](http://blog.trialpay.com/2010/08/trialpay-engineering-challenge-the-snake-cube-puzzle/) ).
 
@@ -49,8 +49,8 @@ CS106A_PA, CS106B_PA, CS_107PA
 
 These repositories contain the programming assignments from Stanford's Engineering Everywhere introductory programming sequence CS106A, CS106B, and CS107 (except assign 6 for 107 which required a thread library that Stanford wrote for the class and I couldn't get access to). Some of the more interesting assignments from a programming perspective are: 
 
-* [Boogle assigment from CS106B](https://github.com/azavadil), relies on recursive backtracking for answer validation and the computer AI. [Assignment description](http://see.stanford.edu/materials/icspacs106b/H22-Assign4Boggle.pdf)
-* [Pathfinder assignment from CS106B](https://github.com/azavadil), application of Dijsktra and Kruskal's algorithm to find shortest paths and minimum spanning trees respectively. [Assignment description](http://see.stanford.edu/materials/icspacs106b/H34-Assign7Pathfinder.pdf)
-* [SixDegrees from CS107](https://github.com/azavadil), work directly with memory in C. [Assignment description] (http://see.stanford.edu/materials/icsppcs107/09-Assignment-2-Six-Degrees.pdf)
-* [Vector and Hashset from CS107](https://github.com/azavadil), implement generic C vector and generic C hashset. [Assignment description](http://see.stanford.edu/materials/icsppcs107/11-Assignment-3-Vector.pdf)
-* [Priority queue and chunklist from CS106B](https://github.com/azavadil), implement a C++ chunklist (i.e. a hybrid linked list/array data structure where each node of the linked list holds an array) and a C++ priority queue. [Assignment description](http://see.stanford.edu/materials/icspacs106b/H32-Assign6Pqueue.pdf)
+* [Boogle assigment from CS106B](https://github.com/azavadil/portfolio/tree/master/CS106B_PA/PA4), relies on recursive backtracking for answer validation and the computer AI. [Assignment description](http://see.stanford.edu/materials/icspacs106b/H22-Assign4Boggle.pdf)
+* [Pathfinder assignment from CS106B](https://github.com/azavadil/portfolio/tree/master/CS106B_PA/PA7), application of Dijsktra and Kruskal's algorithm to find shortest paths and minimum spanning trees respectively. [Assignment description](http://see.stanford.edu/materials/icspacs106b/H34-Assign7Pathfinder.pdf)
+* [SixDegrees from CS107](https://github.com/azavadil/portfolio/tree/master/CS107_PA/assn-2-six-degrees-data), work directly with memory in C. [Assignment description] (http://see.stanford.edu/materials/icsppcs107/09-Assignment-2-Six-Degrees.pdf)
+* [Vector and Hashset from CS107](https://github.com/azavadil/portfolio/tree/master/CS107_PA/assn-3-vector-hashset), implement generic C vector and generic C hashset. [Assignment description](http://see.stanford.edu/materials/icsppcs107/11-Assignment-3-Vector.pdf)
+* [Priority queue and chunklist from CS106B](https://github.com/azavadil/portfolio/tree/master/CS106B_PA/PA6), implement a C++ chunklist (i.e. a hybrid linked list/array data structure where each node of the linked list holds an array) and a C++ priority queue. [Assignment description](http://see.stanford.edu/materials/icspacs106b/H32-Assign6Pqueue.pdf)
