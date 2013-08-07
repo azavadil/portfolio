@@ -260,7 +260,9 @@ bool findWord(string sofar, pointT position, Grid<char> &board, Lexicon &lex, Ve
 
 /* findWords
  * ---------
- * findWords iterates through the boggle board 
+ * findWords iterates through the boggle board calling its recursive helper
+ * method to find if there is a word starting from the current position 
+ */
 
 void findWords(Grid<char> &board, Lexicon &lex, Set<string> &words) { 
 	
