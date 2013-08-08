@@ -1,6 +1,6 @@
 This is the [pathfinder assignement](http://see.stanford.edu/materials/icspacs106b/H34-Assign7Pathfinder.pdf) from CS106B. 
 
-The main routine is in pathfinder.cpp. Rather than write the Dijkstra and Kruskal algorithms as part of pathfinder.cpp, I've abstracted Dijkstra and Kruskal into their own classes. The client can then query an  instances of the Dijkstra or Kruskal class for the shortest path or minimum spanning tree. 
+The main routine is in pathfinder.cpp. Rather than write the Dijkstra and Kruskal algorithms as part of pathfinder.cpp, I've abstracted Dijkstra and Kruskal into their own classes. The client can then query an  instance of the Dijkstra or Kruskal class for the shortest path or minimum spanning tree. 
 
 pathfinder.cpp uses an adjacency list representation of a graph. The graph is a vector of nodes where each node itself maintains a vector of outgoing edges. 
 
