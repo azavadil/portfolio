@@ -4,6 +4,6 @@ The program uses a queue based Bellman-Ford algorithm to detect negative cycles.
 
 arbitrage.py pulls live data from Yahoo finance and finds foriegn currency arbitrages. Because the Yahoo data isn't realistic arbritrage.py typically finds circular arbitrage opportunties(e.g. USD->EUR->USD). I've included test cases that demonstrate the more interesting case of finding triangular arbitrage opportunities(e.g. USD->EUR->JPY->USD).
 
-The programs can be run from the command line. To see a live run, download the file and navigate to the directory where the file is saved, and enter the command:
+The program can be run from the command line. To see a live run, download the file and navigate to the directory where the file is saved, and enter the command:
 
 >$python arbitrage.py
