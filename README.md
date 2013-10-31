@@ -1,3 +1,9 @@
+Msg
+===
+Msg is a messaging webapp running on google app engine. There's a live instance of the app on the web at www.umessaging.appspot.com. 
+
+The application logic is broken out into the web handlers in the [msg folder](https://github.com/azavadil/portfolio/tree/master/msg). Test code for the web handlers, databases, and memcache is in the [test_app folder](https://github.com/azavadil/portfolio/tree/master/msg/test_app)
+
 Demo
 ====
 Demo is a forum webapp running on google app engine. There's a live instance of the app on the web at www.demonstrationforum.appspot.com.
