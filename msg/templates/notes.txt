@@ -1,0 +1,3 @@
+Password validation
+
+Validation of username and password format is performed by the browser using the HTML5 validations. The username and passwords are also validated by the server.  

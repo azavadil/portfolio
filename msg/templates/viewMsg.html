@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+
+
+<!-- sender / subject / date --> 
+
+
+{% block sidebar %}
+	<!-- onClick we want to navigate to a blank message --> 
+	<a href="/newMsg"><button class='btn btn-warning btn-small' type="button">Compose</button></a>
+	<div class = "sidebar"> 
+	
+		<!-- insert numMsgs --> 
+		<a class="gray-link" href="/">Inbox ( {{num_msgs}} )</a> 
+	</div>
+	
+	<div class = "sidebar"> 
+		<a class="gray-link" href="/sent">Sent ( {{num_sent_msgs}} )</a>
+	</div>
+
+{% endblock %}
+
+
+{% block content %}
+	<script type="text/javascript" src="\static\js\postFromButton.js"></script>
+	
+	
+	<div class="row"> 
+		<div class="col-lg-10"> 
+			<div class="panel panel-default">
+  				<div class="panel-heading"> 
+					<h3 class="panel-title" id="msgSubject">{{message.subject}}</h3>
+				</div>
+  				
+  				<div class="panel-body" id="msg-body">
+    				{% autoescape false %}		
+						{{ message_HTML }}
+					{% endautoescape %}	
+  				</div>
+						
+  				<div class="panel-footer">
+					{% if user.key().id() != message.authorID %} 
+					<button class= "btn btn-warning btn-small" onclick ="post_to_url('reply')" type = "submit">Reply</button>
+					<button class= "btn btn-danger btn-small" onclick ="post_to_url('delete')" type = "submit">Delete</button>
+					{% endif %} 
+				</div>
+			</div>
+		</div> 
+	</div> 
+	
+	<input type="hidden" id="msgAuthor" name="msgAuthor" value={{message.author}} />
+{% endblock %}
+
+	
+
+

@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+
+
+<!-- sender / subject / date --> 
+
+
+{% block sidebar %}
+	<!-- onClick we want to navigate to a blank message --> 
+	<a href="/newMsg"><button class='btn btn-warning btn-small' type="button">Compose</button></a>
+	<div class = "sidebar"> 
+	
+		<!-- insert numMsgs --> 
+		<a class="gray-link" href="/">Inbox ( {{num_msgs}} )</a> 
+	</div>
+	
+	<div class = "sidebar"> 
+		<a class="gray-link" href="/sent">Sent ( {{num_sent_msgs}} )</a>
+	</div>
+
+	<div class = "sidebar"> 
+		<a class="gray-link" href="/group">Groups</a>
+	</div>
+
+	
+{% endblock %}
+
+
+{% block content %}
+	<script type="text/javascript" src="\static\js\postFromButton.js"></script>
+	<div class="row")>
+  		<div class="col-lg-10"> 
+  
+  			<div class="panel panel-default">
+  	 			<div class="panel-heading">
+    				<h3 class="panel-title">Messages</h3>
+						<ul class="pager">
+						  <li class="previous"><a href="#" onclick ="post_to_url_short('Newer')">&larr; Newer</a></li>
+						  <li class="next"><a href="#" onclick ="post_to_url_short('Older')">Older &rarr;</a></li>
+						</ul>
+  				</div>
+			
+				<div class="panel-body">  
+					<table class="table">
+						<thead> 
+							<tr> 
+								<th>From</th> 
+								<th>Subject</th>
+								<th>Date</th> 
+							</tr>
+						</thead>
+						
+						<tbody>    
+						{% for msg in msgs %}
+							<tr>
+								<td>
+									<a class = "{{ '' if msg.key() in user.msg_file.unreadKeys else 'gray-link'}}" href="/{{msg.key().id()}}">{{msg.author}}</a>
+								</td>
+				
+								<td>
+									<a class = "{{ '' if msg.key() in user.msg_file.unreadKeys else 'gray-link'}}" href="/{{msg.key().id()}}">{{msg.subject}}</a>
+								</td>
+				
+								<td>
+									<a class = "{{ '' if msg.key() in user.msg_file.unreadKeys else 'gray-link'}}" href="/{{msg.key().id()}}">{{ msg.created.strftime("%b %d, %Y") }}</a>
+								</td>
+							</tr>
+						{% endfor %}
+		    			</tbody> 
+					</table>			
+  				</div>
+  			</div> <!-- end of panel --> 
+		
+		</div>  
+	</div> 
+	
+	<input type="hidden" id = "hiddenPageNum" name="hiddenPageNum" value={{ page_num }} />
+	
+	{% if data %}
+		<script type="text/javascript">
+			window.top.name = JSON.stringify( {{ data | safe }} ); 
+		</script>
+	{% endif %} 
+{% endblock %}
+
+
+	
+
+

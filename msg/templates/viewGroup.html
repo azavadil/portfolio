@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+
+
+<!-- sender / subject / date --> 
+
+
+{% block sidebar %}
+	<!-- onClick we want to navigate to a blank message --> 
+	<a href="/newMsg"><button class='btn btn-warning btn-small' type="button">Compose</button></a>
+	<div class = "sidebar"> 
+	
+		<!-- insert numMsgs --> 
+		<a class="gray-link" href="/">Inbox ( {{num_msgs}} )</a> 
+	</div>
+	
+	<div class = "sidebar"> 
+		<a class="gray-link" href="/sent">Sent ( {{num_sent_msgs}} )</a>
+	</div>
+
+	<div class = "sidebar"> 
+		<a class="gray-link" href="/group">Groups</a>
+	</div>
+
+	
+{% endblock %}
+
+
+{% block content %}
+<!-- script to make the button work -->  
+
+<script type="text/javascript" src="\static\js\postFromButton.js"></script>
+<div class = "row"> 
+  <div class = "col-lg-10"> 
+  <div class="panel panel-default">
+  	 <div class="panel-heading">
+  	 </div>
+			
+	<div class="panel-body">  				
+		<table class="table">
+			<thead> 
+				<tr> 
+					<th>Group</th> 
+		 		</tr>
+			</thead>
+						
+			<tbody>    
+				{% for group in groups %}
+				<tr>
+					<td>
+						{{group.key().name()}}
+					</td>
+				{% endfor %}
+		    </tbody> 
+		</table>		
+	</div> <!-- end of panel body --> 
+  </div> <!-- end of panel --> 
+
+	
+	<div class="row">
+  		<div class="col-lg-6">
+    		<div class="input-group">
+      			<div class="input-group-btn">
+        			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
+        				<ul class="dropdown-menu">
+          					<li><a href="#" onclick="groupActionFn('makeGroup')">Make Group</a></li>
+          					<li><a href="#" onclick="groupActionFn('joinGroup')">Join Group</a></li>
+          					<li><a href="#" onclick="groupActionFn('leaveGroup')">Leave Group</a></li>
+          					<li><a href="#" onclick="groupActionFn('deleteGroup')">Delete Group</a></li>
+           				</ul>
+      			</div><!-- /btn-group -->
+      			<input type="text" class="form-control" id="InputGroupname" placeholder="Group name" pattern="^(?=.*_)[a-zA-Z0-9_]{3,10}$" name="groupname" value={{user_input_groupname}}> 
+    		</div><!-- /input-group -->
+  		</div><!-- /.col-lg-6 -->
+	</div> 
+	<span class="label label-danger">{{error}}</span>
+	
+ </div> 
+</div> 
+{% endblock %}
+
+
+	
+
+

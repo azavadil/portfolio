@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<title>uMsg</title>
+	
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	
+	<link type="text/css" rel="stylesheet" href="/stylesheets/static.css"/>
+	
+	<style> body { padding-top: 70px; } </style> 
+	
+</head>
+	
+<body>
+	
+	<!-- http://twitter.github.io/bootstrap/examples/starter-template.html --> 
+    <div class="navbar navbar-inverse navbar-fixed-top"> 
+      <div class="navbar-inner">
+		<div class="container"> 
+		  	<a class="navbar-brand" href="/">uMsg</a> 
+			{% if not user and not isSignupPage %}
+				
+				<a class="btn btn-warning pull-right navbar-compose-btn" href="/signup">Create account</a>
+				
+			{% endif%}
+				
+		</div>
+	  </div>
+    </div>
+	
+	<div class="container"> 
+	
+		
+		{% if user %}
+		<div class="row">		
+			<div class="col-lg-2 col-lg-offset-10">
+				{{user.key().name()}} (<a class="gray-link" href="/logout">logout</a>)
+				
+				<!-- if the user isn't logged in then we show the login form --> 				
+				<!-- we need to check if we're on the signup page --> 
+			</div> 
+		</div> 
+		{% elif not isSignupPage %}
+							
+		
+		
+			<div class="panel my-jumbotron col-lg-5 col-lg-offset-7">
+				<div class="panel-body	">
+		
+					<form class="form-horizontal" role="form" method="post">
+							
+						<div class="form-group">
+							<label for="InputUsername" class="col-lg-5 control-label">Username</label>
+							<div class="col-lg-7">
+								<input class="form-control" id="InputUsername" placeholder="Username" required
+									type = "text" pattern="^[a-zA-Z0-9]{4,20}$" name = "username" value= "{{name_provided}}">
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="InputPassword" class="col-lg-5 control-label">Password</label> 
+							<div class="col-lg-7">
+								<input class="form-control" id="InputPassword" placeholder="Password" type = "password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{6,20}" 
+											onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Password must contain at least 6 characters, including UPPER/lowercase and numbers' : '')" name = "password" value="">
+							</div>
+						</div>
+							
+						 <div class="form-group">
+							<div class="col-lg-offset-5 col-lg-3">
+								<button type="submit" class="btn btn-warning">Sign In</button>
+							</div>
+						</div>	 
+					</form>
+				</div>  <!-- end panel body -->
+			</div>  <!-- end panel -->
+
+			<!-- we need to check if we're working with an HTML5 browser --> 
+				<div = "row"> 
+				{% if password_error %}
+					<div class = "row"></div>
+						<div class = "col-lg-1 col-lg-offset-9 label label-danger">{{password_error}}</div> 
+					</div>
+				{% endif %} 
+			{% endif %}
+			
+			</div>
+		</div>
+		
+		{% if user %} 
+			<!-- this begins the content section --> 
+			<div class="row"> 
+				<div class="col-lg-1 col-lg-offset-1"> 
+					{% block sidebar %}
+					{% endblock %}
+				</div>
+					
+				<div class="col-lg-9"> 
+					{% block content %}
+					{% endblock %}
+				</div>
+					
+			</div> <!-- end row --> 
+		{% endif %}
+		<!-- this block is only filled in if we go to the signup page --> 
+		
+		
+		<div class="signupPage">
+			<!-- this is a blank will be overwritten by templates that inherit base --> 
+			{% block signupPage %}
+			{% endblock %}
+		</div>		
+			
+		
+	</div>
+
+	
+</body>
+
+</html>

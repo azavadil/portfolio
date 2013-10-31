@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+
+{% block sidebar %}
+	<!-- onClick we want to navigate to a blank message --> 
+	<div class = "sidebar"> 
+	
+		<!-- insert numMsgs --> 
+		<a class="gray-link" href="/">Inbox( {{num_msgs}} )</a> 
+	</div>
+	
+	<div class = "sidebar"> 
+		<a class="gray-link" href="/sent">Sent( {{num_sent_msgs}} )</a>
+	</div>
+
+{% endblock %}
+
+
+
+{% block content %}
+  <script type="text/javascript" src="\static\js\autocomplete.js"></script>
+  <script type="text/javascript" src="\static\js\Trie.js"></script>
+  
+  <div class = "container col-lg-10"> 
+	<div class="navbar navbar-default">
+		<div class="navbar-inner">
+			<ul class="nav">
+				<li>New uMail</li>
+			</ul>
+		</div>
+	</div>
+		
+		<form role="form" method="post">
+  			<div class="form-group">
+    			<label for="InputRecipient">To</label>     			
+    			<input class="form-control" id="InputRecipient" type="text" placeholder="Enter recipient" 
+    			required name="recipient" pattern="^\w{3,20}$" value="{{recipient}}" autocomplete = "off" 
+				list = "datalistNames" onkeyup = "inputCmpls()">
+  			</div>
+  			
+  			
+  			<div class="form-group">
+    			<label for="InputSubject">Subject</label>
+    			<input class="form-control" id="InputSubject" type="text" placeholder="Subject"  name="subject" value="{{subject}}">
+  			</div>
+  
+  			<div class="form-group">
+    			<label for="InputMessageBody">Message</label>
+    			<textarea class="form-control" id="InputMessageBody" rows="16" name="body">{{body}}</textarea>
+  			</div>
+  
+  			<button type="submit" class="btn btn-warning">Send</button>
+		</form>
+		<div class="row"> 
+			<div class="col-lg-10"> 
+				<span class="label label-danger">{{fallback_error}}</span>
+			</div>
+		</div> 
+  </div> 
+ 
+
+  
+ 
+  <div id = "datalistDiv"></div> 
+  <script type="text/javascript"> 
+	 setTrieInWindow()
+  </script>
+
+  
+{% endblock %}
