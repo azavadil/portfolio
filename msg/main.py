@@ -2,11 +2,6 @@ import sys
 import os
 sys.path.append(os.path.join(os.path.dirname(__file__), 'lib'))
 
-
-
-from validation_fn import escape_html
-
-
 from base_handler import BaseHandler
 from main_page import MainPage
 from signup_page import Register
@@ -19,12 +14,6 @@ from all_manager import AllManager
 
 import webapp2
 
-from google.appengine.ext import db
-from google.appengine.api import memcache
-import urlparse
-
-
-		
 		
 #
 # Implementation note: 
