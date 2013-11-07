@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>QUnit Example</title>
+  <link rel="stylesheet" href="resources/qunit.css">
+</head>
+<body>
+  <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+  <script src="resources/qunit.js"></script>
+  <script src="tictactoe.js"></script>
+ 
+  <script>
+	var board = new Board();
+	module('Module A'); 
+    test("Empty board tests", function() {
+     var value = [0,1,2,3,4,5,6,7,8]; 
+     equal( board.successors().toString(), value.toString(), "We expected values 0-8" );
+	 equal( 0, board.getWinner(), "We expect value of 0");
+	 ok(board.isEmpty()); 
+	 
+    });
+	
+	var board2 = new Board(); 
+	board2.move(1,0); 
+	
+	module('Module B'); 
+	test("Non empty board tests", function() { 
+	  var value = [1,2,3,4,5,6,7,8];
+	  equal( value.toString(), board2.successors().toString(), "We expected values 1-8" );
+	  equal( board.getWinner(), 0, "We expect value of 0");
+	}); 
+	
+	var board3 = new Board(); 
+	for (var i = 0; i < 3; i++) { 
+		board3.move(1,i); 
+	}
+	
+	module('Module C'); 
+	test("Non empty board tests", function() { 
+	  var value = [3,4,5,6,7,8];
+	  equal( value.toString(), board3.successors().toString(), "We expected values 3-8" );
+	  equal( board3.getWinner(), 1, "We expect value of 1");
+	}); 
+	
+	var board4 = new Board(); 
+	for (var i = 0; i < 9; i++){
+	  board4.move(1,i); 
+	}
+	
+	module('Module D'); 
+	test("Full board tests", function(){ 
+	  var value = []; 
+	  equal( value.toString(), board4.successors().toString(), "We expected []"); 
+	  equal( board3.getWinner(), 1, "We expect value of 1"); 
+	}); 
+	
+	var board5 = new Board(); 
+	var mm = new MinMax(6, board5);
+    var firstMove = mm.buildtree(board5, 1); 
+	var board6 = new Board(); 
+	board6.move(4,1); board.move(0,1); 
+	var p1Move = mm.buildtree(board6,1); 
+	var p2Move = mm.buildtree(board6,2); 
+	
+	module('Module E'); 
+	test("Negamax", function(){ 
+	  equal( firstMove, 4, "we expect 4 for the first move");
+	  equal( p1Move, 4, "we expect 4 for the first move");
+      equal( p2Move, 4, "we expect 4 for the first move");	  
+	}); 
+	
+    
+	
+  </script>
+  
+   
+</body>
+</html>

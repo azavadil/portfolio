@@ -1,0 +1,65 @@
+/** Implementation note: 
+     * ---------------------
+     * media queries allow us to ask questions about the type of device our html is being 
+     * displayed on and modify the styling to match the device
+     */ 
+
+
+    /* Large desktop */
+    @media(min-width: 980px){
+     body {
+        padding-top: 60px;
+     }
+    }
+
+    /* All form factors */ 
+    body { 
+      font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    } 
+    .heading, .subheading { 
+      font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+      text-align: center; 
+    }
+
+    /* Game Cell */ 
+    
+	.mainBoard{ 
+		height: 300px; 
+	}
+	
+	.highlightedTd{
+		background-color:  #CEECF5;
+	}
+	
+	/*Tic tac toe table */ 
+	
+	.tttBoard {
+	  text-align: center; 
+	  table-layout: fixed; 
+	  min-height:100%; 
+	  min-width:100%;
+	}
+	
+	
+	/* table cells */ 
+	tr {
+		height = 33%;
+	}
+	
+	td {
+		width: 33%; 	
+	}
+	
+		
+    .footer { 
+      color: #cccccc; 
+      text-align: center; 
+    }
+    
+    .footer p { 
+      font-size: 11px; 
+    }
+
+    .footer a { 
+      color: #ccccff; 
+    }
