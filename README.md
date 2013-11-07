@@ -41,6 +41,12 @@ The programs can be run from the command line. To see a live run, download the f
 
 >$python arbitrage.py
 
+TicTacToe
+=========
+
+[Tic Tac Toe](https://github.com/azavadil/portfolio/tree/master/TicTacToe) is a web application written in javascript. The user can play either Tic Tac Toe or a modified version of Connect Four. 
+
+
 Assign4
 =======
 
